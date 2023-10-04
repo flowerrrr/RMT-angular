@@ -1,0 +1,12 @@
+<app-toolbar></app-toolbar>
+<!-- Global place for displaying error messages like http errors accessing the backend -->
+<div *ngIf="errorMessage" class="global-error">
+  {{ errorMessage }}
+  <button (click)="dismissError()">Ok</button> <!-- Dismiss button -->
+
+</div>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+

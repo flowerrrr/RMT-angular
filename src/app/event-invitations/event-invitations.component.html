@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <div class="title-container">
+        <mat-icon (click)="goBack()" style="cursor:pointer;">arrow_back_ios</mat-icon>
+        <h1>Event Details</h1>
+      </div>    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="!event">
+      <p>Lade Daten ...</p>
+    </div>
+    <div *ngIf="event">
+      <dl class="key-value-list">
+        <dt>Datum</dt>
+        <dd> {{ event.dateTime | date:'EE dd.MM.yy, HH:mm':'CET':'de' }}</dd>
+
+        <dt>Team</dt>
+        <dd>{{ event.team.name }}</dd>
+
+        <dt>Eventtyp</dt>
+        <dd>{{ event.eventType  }}</dd>
+
+        <dt>Titel</dt>
+        <dd>{{ event.summary  }}</dd>
+      </dl>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Rückmeldungen</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="invitations.length">
+      <mat-list>
+        <mat-divider></mat-divider>
+        <div mat-subheader>
+          Zusagen ({{ getInvitations(RSVPStatus.ACCEPTED).length }})
+        </div>
+        <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.ACCEPTED)">
+          <mat-icon matListItemIcon>thumb_up_off_alt</mat-icon>
+          <div matListItemTitle>{{invitation.user.fullname}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <div mat-subheader>
+          Vielleicht ({{ getInvitations(RSVPStatus.UNSURE).length }})
+        </div>
+        <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.UNSURE)">
+          <mat-icon matListItemIcon>thumbs_up_down</mat-icon>
+          <div matListItemTitle>{{invitation.user.fullname}}</div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <div mat-subheader>
+          Absagen ({{ getInvitations(RSVPStatus.DECLINED).length }})
+        </div>
+        <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.DECLINED)">
+          <mat-icon matListItemIcon>thumb_down_off_alt</mat-icon>
+          <div matListItemTitle>{{invitation.user.fullname}}</div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-card-content>
+</mat-card>
+

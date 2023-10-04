@@ -1,0 +1,35 @@
+.title-container {
+  display: flex;
+  align-items: center; /* This vertically centers the children (icon and text) */
+  gap: 10px; /* Optional: for some space between the icon and the text */
+}
+
+.title-container h1 {
+  margin: 0; /* Reset the margin to remove any browser default */
+}
+
+.key-value-list {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+.key-value-list dt {
+  flex-basis: 20%;
+  margin-bottom: 16px;
+}
+.key-value-list dd {
+  flex-basis: 70%;
+  margin-left: 15px;
+}
+
+.mat-mdc-card-content:last-child {
+  padding-bottom: 0px;
+}
+
+.mat-mdc-list-item  {
+  height: 40px !important;
+}
+
+.material-icons {
+  font-size: 20px;
+}

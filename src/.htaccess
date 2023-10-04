@@ -1,0 +1,18 @@
+# This file is required to enable deep linking into angular app
+# See https://angular.io/guide/deployment#server-configuration
+# Requires enabling AllowOverride All in /etc/apache2/sites-available/flower.de-le-ssl.conf
+# Add the following to the file:
+#    <Directory "/var/www/vhosts/flower.de/das-tool-2">
+#        AllowOverride All
+#    </Directory>
+
+
+RewriteEngine On
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ index.html
+

@@ -1,0 +1,46 @@
+<div>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    fxLayout="column"
+    fxLayoutAlign="center stretch"
+  >
+    <mat-card class="authentication-card">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content
+        fxLayout="column"
+        fxLayoutAlign="center stretch">
+        <div *ngIf="errorMessage" class="error">
+          <mat-error>
+            {{ errorMessage }}
+          </mat-error>
+        </div>
+
+        <mat-form-field>
+          <mat-label>E-Mail</mat-label>
+          <input matInput formControlName="username"/>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Passwort</mat-label>
+          <input matInput type="password" formControlName="password"/>
+          <!-- The link below toggles the message box -->
+        </mat-form-field>
+        <a href="javascript:void(0)" (click)="showForgotPasswordMessage = !showForgotPasswordMessage">Passwort
+          vergessen?</a>
+
+        <!-- Conditional simple message box -->
+        <div *ngIf="showForgotPasswordMessage">
+          Ein Passwort-Reset kann mit der Legacy-Web-App durchgeführt werden.
+        </div>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button type="submit" mat-raised-button color="primary">
+          Login
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<div class="header">
+  <h1>Termine</h1>
+</div>
+
+<div *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>
+
+<table mat-table [dataSource]="invitations" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Datum</th>
+    <td mat-cell
+        *matCellDef="let invitation"> {{ invitation.event.dateTime | date:'EE dd.MM. HH:mm':'CET':'de'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="summary">
+    <th mat-header-cell *matHeaderCellDef>Team / Titel</th>
+    <td mat-cell *matCellDef="let invitation">
+      <div>{{ invitation.event.team.name }}</div>
+      <!--      <span>{{ invitation.event.team.name }}</span> - <span>{{ invitation.event.eventType }}</span>-->
+      <div>{{ invitation.event.summary }}</div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let invitation" (click)="editStatus($event, invitation)">
+      <ng-container *ngIf="editingItem !== invitation">
+        <mat-icon>{{getStatusIcon(invitation.status)}}</mat-icon>
+      </ng-container>
+      <select *ngIf="editingItem === invitation" [(ngModel)]="invitation.status" (blur)="finishEdit()"
+              (change)="onStatusChange(invitation)">
+        <option *ngFor="let status of statuses" [value]="status">{{ getStatusLabel(status) }}</option>
+      </select>
+    </td>
+
+    <!-- das hier funktioniert noch nicht ganz. Dropdown öffnet sich nicht automatisch und bei Auswahl wird onStatusChange nicht aufgerufen -->
+    <!--      <mat-form-field *ngIf="editingItem === invitation">-->
+    <!--        <mat-select [(ngModel)]="invitation.status" (blur)="finishEdit()" (selectionChange)="onStatusChange(invitation)">-->
+    <!--          <mat-option *ngFor="let status of statuses" [value]="status">-->
+    <!--            <mat-icon>{{getStatusIcon(status)}}</mat-icon> {{ getStatusLabel(status) }}-->
+    <!--          </mat-option>-->
+    <!--        </mat-select>-->
+    <!--      </mat-form-field>-->
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let invitation; columns: displayedColumns;" (click)="onRowClicked(invitation)"></tr>
+
+</table>
+
+
