@@ -66,7 +66,7 @@ export class StatusEditorComponent {
         invitation.status = this.originalStatus!;
       }
     );
-    this.editing = false;
+    this.finishEdit();
   }
 
   getStatusLabel(status: RSVPStatus): string {

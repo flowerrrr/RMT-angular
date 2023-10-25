@@ -38,11 +38,14 @@ export class EventsComponent implements OnInit {
 
   onRowClicked(invitation: Invitation) {
     if (this.statusEditing) {
-      // just hide select box and display icon again
+      this.statusEditing = false;
+      // call ngOnInit() to exit edit mode in status-editor component.
+      this.ngOnInit()
       return;
+    } else {
+      // Navigate to the detail view for the clicked item.
+      this.router.navigate(['/event', invitation.event.id]);
     }
-    // Navigate to the detail view for the clicked item.
-    this.router.navigate(['/event', invitation.event.id]);
   }
 
   onStatusEditing($event: boolean) {
