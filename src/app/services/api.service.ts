@@ -22,6 +22,13 @@ export class ApiService {
       );
   }
 
+  invitation(invitationId: number): Observable<Invitation> {
+    return this.http.get<Invitation>(environment.apiUrl + `/invitations/${invitationId}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   invitations(): Observable<Invitation[]> {
     return this.http.get<Invitation[]>(environment.apiUrl + '/invitations')
       .pipe(

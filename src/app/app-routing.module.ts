@@ -8,7 +8,7 @@ import {EventInvitationsComponent} from "./event-invitations/event-invitations.c
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'invitations', component: InvitationsComponent},
-  {path: 'event/:id', component: EventInvitationsComponent},
+  {path: 'event/:eventId/:invitationId', component: EventInvitationsComponent},
   {path: '', redirectTo: '/invitations', pathMatch: 'full'},
 ];
 

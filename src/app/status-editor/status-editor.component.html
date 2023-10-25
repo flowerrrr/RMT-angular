@@ -1,0 +1,8 @@
+<ng-container *ngIf="!editing">
+  <mat-icon (click)="editStatus()">{{getStatusIcon(invitation.status)}}</mat-icon>
+</ng-container>
+<select *ngIf="editing" [(ngModel)]="invitation.status" (blur)="finishEdit()"
+        (change)="onStatusChange(invitation)">
+  <option *ngFor="let status of statuses" [value]="status">{{ getStatusLabel(status) }}</option>
+</select>
+

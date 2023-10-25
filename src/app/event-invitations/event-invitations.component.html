@@ -3,8 +3,9 @@
     <mat-card-title>
       <div class="title-container">
         <mat-icon (click)="goBack()" style="cursor:pointer;">arrow_back_ios</mat-icon>
-        <h1>Event Details</h1>
-      </div>    </mat-card-title>
+        <h1>Termin</h1>
+      </div>
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div *ngIf="!event">
@@ -18,16 +19,23 @@
         <dt>Team</dt>
         <dd>{{ event.team.name }}</dd>
 
-        <dt>Eventtyp</dt>
+        <dt>Typ</dt>
         <dd>{{ event.eventType  }}</dd>
 
         <dt>Titel</dt>
         <dd>{{ event.summary  }}</dd>
+
+        <dt>Meine Rückmeldung</dt>
+        <dd>
+          <div *ngIf="invitation" class="status-editor">
+            <app-status-editor [invitation]="invitation" (statusUpdated)="handleStatusUpdate($event)">
+            </app-status-editor>
+          </div>
+        </dd>
       </dl>
     </div>
   </mat-card-content>
 </mat-card>
-
 
 <mat-card>
   <mat-card-header>

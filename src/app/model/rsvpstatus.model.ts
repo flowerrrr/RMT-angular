@@ -7,9 +7,9 @@ export enum RSVPStatus {
 
 // I18N Support ist nicht implementiert. Alles ist auf Deutsch.
 export const RSVPStatusLabels = {
-  [RSVPStatus.ACCEPTED]: 'zugesagt',
-  [RSVPStatus.DECLINED]: 'abgelehnt',
-  [RSVPStatus.UNSURE]: 'vielleicht',
+  [RSVPStatus.ACCEPTED]: 'Bin dabei',
+  [RSVPStatus.DECLINED]: 'Komme nicht',
+  [RSVPStatus.UNSURE]: 'Komme vielleicht',
   [RSVPStatus.NORESPONSE]: ''
 };
 

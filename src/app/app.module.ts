@@ -14,21 +14,21 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {JwtInterceptorService} from "./helpers/jwt.interceptor";
-import { registerLocaleData } from '@angular/common';
+import {DatePipe, registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
-import { DatePipe } from '@angular/common';
-import { EventInvitationsComponent } from './event-invitations/event-invitations.component';
+import {EventInvitationsComponent} from './event-invitations/event-invitations.component';
 import {HttpErrorInterceptor} from "./helpers/http-error.interceptor";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import {ToolbarComponent} from './toolbar/toolbar.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatListModule} from "@angular/material/list";
-import { FooterComponent } from './footer/footer.component';
+import {FooterComponent} from './footer/footer.component';
+import {StatusEditorComponent} from './status-editor/status-editor.component';
 
 registerLocaleData(localeDe, 'de');
 
@@ -40,7 +40,8 @@ registerLocaleData(localeDe, 'de');
     InvitationsComponent,
     LoginComponent,
     ToolbarComponent,
-    FooterComponent
+    FooterComponent,
+    StatusEditorComponent
   ],
   imports: [
     BrowserModule,

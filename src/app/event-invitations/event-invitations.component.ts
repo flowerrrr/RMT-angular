@@ -15,7 +15,10 @@ import {RSVPStatus} from "../model/rsvpstatus.model";
 export class EventInvitationsComponent {
   invitations: Invitation[] = [];
   event: Event | null = null;
+  invitation: Invitation | null = null;
+
   protected readonly RSVPStatus = RSVPStatus;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -26,23 +29,35 @@ export class EventInvitationsComponent {
   }
 
   ngOnInit(): void {
-    const eventId = Number(this.route.snapshot.paramMap.get('id'));
+    const eventId = Number(this.route.snapshot.paramMap.get('eventId'));
+    const invitationId = Number(this.route.snapshot.paramMap.get('invitationId'));
     this.apiService.eventInvitations(eventId)
-      .subscribe(data => this.invitations = data);
-    this.apiService.event(eventId)
-      .subscribe(data => this.event = data);
+      .subscribe(invitations => this.invitations = invitations);
+    this.apiService.invitation(invitationId)
+      .subscribe(invitation => {
+        this.event = invitation.event
+        this.invitation = invitation
+      });
+  }
+
+  handleStatusUpdate(event: string) {
+    // Here, you might want to call a method that fetches the updated data
+    // or perform any updates as response to the child's event.
+    console.log('Status update event received from child: ', event);
+    this.ngOnInit();
   }
 
   getInvitations(status: RSVPStatus) {
     return this.invitations.filter(i => i.status === status);
   }
 
-  getStatusLabel(status: RSVPStatus): string {
-    return this.utilService.getStatusLabel(status);
+  getStatusIcon(status: RSVPStatus): string {
+    return this.utilService.getStatusIcon(status);
   }
 
   goBack(): void {
     this.location.back();
   }
+
 
 }
