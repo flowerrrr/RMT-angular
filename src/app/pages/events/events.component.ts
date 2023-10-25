@@ -1,18 +1,18 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {ApiService} from '../services/api.service';
-import {Invitation} from "../model/invitation.model";
-import {RSVPStatus, RSVPStatusLabels} from "../model/rsvpstatus.model";
-import {UtilService} from "../services/util.service";
+import {ApiService} from '../../services/api.service';
+import {Invitation} from "../../model/invitation.model";
+import {RSVPStatus, RSVPStatusLabels} from "../../model/rsvpstatus.model";
+import {UtilService} from "../../services/util.service";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {StatusEditorComponent} from "../status-editor/status-editor.component";
+import {StatusEditorComponent} from "../../components/status-editor/status-editor.component";
 
 @Component({
-  selector: 'app-invitations',
-  templateUrl: './invitations.component.html',
-  styleUrls: ['./invitations.component.css']
+  selector: 'app-events',
+  templateUrl: './events.component.html',
+  styleUrls: ['./events.component.css']
 })
-export class InvitationsComponent implements OnInit {
+export class EventsComponent implements OnInit {
   invitations: Invitation[] = [];
   statuses = this.utilService.statuses; // to use in *ngFor
 

@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Invitation} from "../model/invitation.model";
-import {ApiService} from "../services/api.service";
-import {UtilService} from "../services/util.service";
+import {Invitation} from "../../model/invitation.model";
+import {ApiService} from "../../services/api.service";
+import {UtilService} from "../../services/util.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {RSVPStatus} from "../model/rsvpstatus.model";
+import {RSVPStatus} from "../../model/rsvpstatus.model";
 
 @Component({
   selector: 'app-status-editor',

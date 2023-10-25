@@ -1,18 +1,18 @@
 import {ActivatedRoute} from '@angular/router';
 import {Component} from '@angular/core';
-import {ApiService} from "../services/api.service";
-import {Invitation} from "../model/invitation.model";
-import {Event} from "../model/event.model";
+import {ApiService} from "../../services/api.service";
+import {Invitation} from "../../model/invitation.model";
+import {Event} from "../../model/event.model";
 import {Location} from '@angular/common';
-import {UtilService} from "../services/util.service";
-import {RSVPStatus} from "../model/rsvpstatus.model";
+import {UtilService} from "../../services/util.service";
+import {RSVPStatus} from "../../model/rsvpstatus.model";
 
 @Component({
-  selector: 'app-event-invitations',
-  templateUrl: './event-invitations.component.html',
-  styleUrls: ['./event-invitations.component.css']
+  selector: 'app-event',
+  templateUrl: './event.component.html',
+  styleUrls: ['./event.component.css']
 })
-export class EventInvitationsComponent {
+export class EventComponent {
   invitations: Invitation[] = [];
   event: Event | null = null;
   invitation: Invitation | null = null;
