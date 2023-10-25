@@ -30,20 +30,19 @@ export class EventInvitationsComponent {
 
   ngOnInit(): void {
     const eventId = Number(this.route.snapshot.paramMap.get('eventId'));
-    const invitationId = Number(this.route.snapshot.paramMap.get('invitationId'));
     this.apiService.eventInvitations(eventId)
       .subscribe(invitations => this.invitations = invitations);
-    this.apiService.invitation(invitationId)
+    this.apiService.invitation(eventId)
       .subscribe(invitation => {
         this.event = invitation.event
         this.invitation = invitation
       });
   }
 
+  /**
+   * Called when the status of an invitation has been updated and the invitation list needs to be refreshed.
+   */
   handleStatusUpdate(event: string) {
-    // Here, you might want to call a method that fetches the updated data
-    // or perform any updates as response to the child's event.
-    console.log('Status update event received from child: ', event);
     this.ngOnInit();
   }
 

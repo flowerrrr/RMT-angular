@@ -42,7 +42,7 @@ export class InvitationsComponent implements OnInit {
       return;
     }
     // Navigate to the detail view for the clicked item.
-    this.router.navigate(['/event', invitation.event.id, invitation.id]);
+    this.router.navigate(['/event', invitation.event.id]);
   }
 
   onStatusEditing($event: boolean) {
