@@ -54,9 +54,5 @@ export class EventComponent {
     return this.utilService.getStatusIcon(status);
   }
 
-  goBack(): void {
-    this.location.back();
-  }
-
 
 }
