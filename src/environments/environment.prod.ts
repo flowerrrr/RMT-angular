@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://flower.de:8453/das-tool-rest',
+  apiUrl: 'https://flower.de/das-tool-rest',
 };

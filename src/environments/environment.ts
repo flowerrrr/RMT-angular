@@ -4,5 +4,5 @@
 export const environment = {
   production: false,
   name: 'prod',
-  apiUrl: 'https://192.168.178.40:8453/das-tool-rest',
+  apiUrl: 'http://192.168.178.40:8090/das-tool-rest',
 };
