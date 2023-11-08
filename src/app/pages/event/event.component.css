@@ -26,8 +26,35 @@
   padding-bottom: 0px;
 }
 
-.mat-mdc-list-item  {
-  height: 40px !important;
+.mat-mdc-list-item.mdc-list-item--with-leading-icon.mdc-list-item--with-two-lines {
+  /* override fixed height */
+  height: auto;
+}
+
+.mdc-list-item--with-leading-icon.mdc-list-item--with-two-lines .mdc-list-item__primary-text {
+  /* less padding between name of player and comments */
+  margin-bottom: -28px;
+}
+
+.invitations .mat-mdc-list-item {
+  margin-top: -15px;
+  margin-bottom: 5px;
+}
+
+.mdc-list-item__secondary-text::before {
+  /* make block above comments thinner */
+  height: 0px;
+}
+
+.comment {
+  /* comments should wrap */
+  text-wrap: wrap;
+  /* little bit of padding between comments */
+  padding-bottom: 4px;
+}
+
+.comment .author {
+  font-size: x-small;
 }
 
 .material-icons {

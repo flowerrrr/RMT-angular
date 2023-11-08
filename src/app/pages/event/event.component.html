@@ -43,7 +43,7 @@
       <h1>Rückmeldungen</h1>
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content class="invitations">
     <div *ngIf="invitations.length">
       <mat-list>
         <mat-divider></mat-divider>
@@ -53,6 +53,11 @@
         <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.ACCEPTED)">
           <mat-icon matListItemIcon>thumb_up_off_alt</mat-icon>
           <div matListItemTitle>{{invitation.user.fullname}}</div>
+          <div matListItemLine *ngIf="invitation.comments.length">
+            <div *ngFor="let comment of invitation.comments" class="comment">
+              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username" class="author">{{comment.author.fullname}}</span>
+            </div>
+          </div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <div mat-subheader>
@@ -61,6 +66,11 @@
         <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.UNSURE)">
           <mat-icon matListItemIcon>thumbs_up_down</mat-icon>
           <div matListItemTitle>{{invitation.user.fullname}}</div>
+          <div matListItemLine>
+            <div *ngFor="let comment of invitation.comments" class="comment">
+              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username" class="author">{{comment.author.fullname}}</span>
+            </div>
+          </div>
         </mat-list-item>
         <mat-divider></mat-divider>
         <div mat-subheader>
@@ -69,6 +79,11 @@
         <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.DECLINED)">
           <mat-icon matListItemIcon>thumb_down_off_alt</mat-icon>
           <div matListItemTitle>{{invitation.user.fullname}}</div>
+          <div matListItemLine>
+            <div *ngFor="let comment of invitation.comments" class="comment">
+              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username" class="author">{{comment.author.fullname}}</span>
+            </div>
+          </div>
         </mat-list-item>
       </mat-list>
     </div>
