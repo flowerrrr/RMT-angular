@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ErrorService} from "./services/error.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-root',
@@ -9,23 +10,17 @@ import {ErrorService} from "./services/error.service";
 export class AppComponent implements OnInit {
   errorMessage: string | null = null;
 
-  constructor(private errorService: ErrorService) {
+  constructor(
+    private errorService: ErrorService,
+    private snackbar: MatSnackBar
+  ) {
   }
 
   ngOnInit() {
     this.errorService.error$.subscribe(msg => {
       // Assign the error message, which will make your error-display element visible
-      this.errorMessage = msg;
-
-      // Optionally, clear the message after a certain time
-      // setTimeout(() => this.errorMessage = null, 3000); // 3 seconds display
+      this.snackbar.open(msg, 'OK');
     });
   }
-
-  // Method to clear the error message, called by the dismiss button
-  dismissError() {
-    this.errorMessage = null;
-  }
-
 
 }

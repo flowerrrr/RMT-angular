@@ -21,7 +21,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             return throwError(error);
           }
           // You can deliver a custom error message or send the API's error message.
-          const errMsg = error.message || 'An unknown error occurred!';
+          const errMsg = 'Fehler beim Zugriff auf den Server: ' + error.message || 'Unbekannter Fehler beim Zugriff auf den Server.';
           this.errorService.handleError(errMsg);
           return throwError(error);
         })
