@@ -5,6 +5,7 @@ import {ApiService} from "../../../services/api.service";
 import {UtilService} from "../../../services/util.service";
 import {debounceTime, Subject} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {Event} from "../../../model/event.model";
 
 @Component({
   selector: 'app-my-response',
@@ -75,4 +76,9 @@ export class MyResponseComponent {
       }
     );
   }
+
+  isEventClosed() {
+    return this.utilService.isEventClosed(this.invitation.event);
+  }
+
 }

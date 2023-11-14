@@ -31,9 +31,7 @@ export class StatusEditorComponent {
   editStatus() {
     console.log("Editing item", this.invitation);
 
-    const invitationDate = new Date(this.invitation.event.dateTime);
-    const now = new Date();
-    if (invitationDate < now) {
+    if (this.utilService.isEventClosed(this.invitation.event)) {
       // If the invitation date is in the past, we alert the user and don't proceed with editing.
       this.snackbar.open('Keine Online-Rückmeldung mehr möglich.', 'OK', {duration: 3000});
       return;
