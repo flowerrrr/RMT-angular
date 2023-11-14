@@ -43,9 +43,12 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', (username = 'oliver.blume@yahoo.de', password = Cypress.env('password')) => {
+  // intercept und wait stellen sicher, dass das JWT-Token im LocalStorage gespeichert wird, bevor weitere Testschritte ausgeführt werden.
+  cy.intercept('POST', '/das-tool-rest/login').as('login')
   cy.visit('/login');
   cy.get('input[formControlName="username"]').type(username, { delay: 0});
   cy.get('input[formControlName="password"]').type(password, { delay: 0});
   cy.get('button[type=submit]').click();
+  cy.wait('@login')
 });
 

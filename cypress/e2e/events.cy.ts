@@ -8,7 +8,7 @@ describe('Termine', () => {
   it('should contain 20 items', () => {
     cy.visit('/events')
     cy.contains('Termine')
-    cy.get('table mat-row').should('have.length', 20);
+    cy.get('[data-cy="event.dateTime"]').should('have.length', 20);
   })
 
 
