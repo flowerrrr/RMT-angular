@@ -29,6 +29,8 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatListModule} from "@angular/material/list";
 import {FooterComponent} from './components/footer/footer.component';
 import {StatusEditorComponent} from './components/status-editor/status-editor.component';
+import {MatRadioModule} from "@angular/material/radio";
+import { MyResponseComponent } from './pages/event/my-response/my-response.component';
 
 registerLocaleData(localeDe, 'de');
 
@@ -41,7 +43,8 @@ registerLocaleData(localeDe, 'de');
     LoginComponent,
     ToolbarComponent,
     FooterComponent,
-    StatusEditorComponent
+    StatusEditorComponent,
+    MyResponseComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +61,7 @@ registerLocaleData(localeDe, 'de');
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatRadioModule,
     MatSelectModule,
     MatSnackBarModule,
     MatTableModule,

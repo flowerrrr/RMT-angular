@@ -3,8 +3,6 @@ import {Component} from '@angular/core';
 import {ApiService} from "../../services/api.service";
 import {Invitation} from "../../model/invitation.model";
 import {Event} from "../../model/event.model";
-import {Location} from '@angular/common';
-import {UtilService} from "../../services/util.service";
 import {RSVPStatus} from "../../model/rsvpstatus.model";
 
 @Component({
@@ -23,8 +21,6 @@ export class EventComponent {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private utilService: UtilService,
-    private location: Location
   ) {
   }
 
@@ -49,10 +45,5 @@ export class EventComponent {
   getInvitations(status: RSVPStatus) {
     return this.invitations.filter(i => i.status === status);
   }
-
-  getStatusIcon(status: RSVPStatus): string {
-    return this.utilService.getStatusIcon(status);
-  }
-
 
 }

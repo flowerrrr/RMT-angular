@@ -1,8 +1,18 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      <div class="title-container">
+      <div routerLink="/" class="title-container">
         <mat-icon routerLink="/" style="cursor:pointer;">arrow_back_ios</mat-icon>
+        <h1>Übersicht</h1>
+      </div>
+    </mat-card-title>
+  </mat-card-header>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <div class="title-container">
         <h1>Termin</h1>
       </div>
     </mat-card-title>
@@ -25,16 +35,24 @@
         <dt>Titel</dt>
         <dd>{{ event.summary  }}</dd>
 
-        <dt>Meine Rückmeldung</dt>
-        <dd>
-          <div *ngIf="invitation" class="status-editor">
-            <app-status-editor [invitation]="invitation" (statusUpdated)="handleStatusUpdate($event)">
-            </app-status-editor>
-          </div>
-        </dd>
       </dl>
     </div>
   </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Meine Rückmeldung</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="invitation">
+      <app-my-response [invitation]="invitation" (statusUpdated)="handleStatusUpdate($event)">
+      </app-my-response>
+    </div>
+  </mat-card-content>
+
 </mat-card>
 
 <mat-card>
@@ -55,7 +73,8 @@
           <div matListItemTitle>{{invitation.user.fullname}}</div>
           <div matListItemLine *ngIf="invitation.comments.length">
             <div *ngFor="let comment of invitation.comments" class="comment">
-              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username" class="author">{{comment.author.fullname}}</span>
+              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username"
+                                       class="author">{{comment.author.fullname}}</span>
             </div>
           </div>
         </mat-list-item>
@@ -68,7 +87,8 @@
           <div matListItemTitle>{{invitation.user.fullname}}</div>
           <div matListItemLine>
             <div *ngFor="let comment of invitation.comments" class="comment">
-              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username" class="author">{{comment.author.fullname}}</span>
+              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username"
+                                       class="author">{{comment.author.fullname}}</span>
             </div>
           </div>
         </mat-list-item>
@@ -81,7 +101,8 @@
           <div matListItemTitle>{{invitation.user.fullname}}</div>
           <div matListItemLine>
             <div *ngFor="let comment of invitation.comments" class="comment">
-              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username" class="author">{{comment.author.fullname}}</span>
+              "{{comment.text}}" <span *ngIf="comment.author.username !== invitation.user.username"
+                                       class="author">{{comment.author.fullname}}</span>
             </div>
           </div>
         </mat-list-item>

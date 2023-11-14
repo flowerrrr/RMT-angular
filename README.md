@@ -26,7 +26,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-  npx cypress open --e2e -b chrome
+    npx cypress open --e2e -b chrome
 
 ## Server configuration
 
@@ -35,7 +35,11 @@ More details: see src/.htaccess
 
 ## Accessing local server from smartphone
 
-Windows Firewall must be configured to allow access to port 4200 and 8453 from the local network.
+Run
+  
+    ng serve --host 192.168.178.40
+
+Windows Firewall must be configured to allow access to port 4200 and 8090 (rest-api Port) from the local network.
 
 ## Further help
 

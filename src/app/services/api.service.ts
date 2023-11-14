@@ -43,8 +43,8 @@ export class ApiService {
       );
   }
 
-  updateInvitation(id: number, status: RSVPStatus) {
-    return this.http.post(environment.apiUrl + '/invitations', {id: id, status: status})
+  updateInvitation(id: number, status: RSVPStatus, comment?: string): Observable<any> {
+    return this.http.post(environment.apiUrl + '/invitations', {id: id, status: status,   comment: comment !== undefined ? comment : null})
       .pipe(
         catchError(this.handleError)
       );

@@ -1,0 +1,10 @@
+  <mat-radio-group class="radio-group" [(ngModel)]="invitation.status" (change)="onStatusChange()">
+    <mat-radio-button [value]="RSVPStatus.ACCEPTED">{{getStatusLabel(RSVPStatus.ACCEPTED)}}</mat-radio-button>
+    <mat-radio-button [value]="RSVPStatus.UNSURE">{{getStatusLabel(RSVPStatus.UNSURE)}}</mat-radio-button>
+    <mat-radio-button [value]="RSVPStatus.DECLINED">{{getStatusLabel(RSVPStatus.DECLINED)}}</mat-radio-button>
+  </mat-radio-group>
+  <mat-form-field class="comment-textarea">
+    <mat-label>Kommentar</mat-label>
+    <textarea matInput [(ngModel)]="comment" maxlength="255"  (ngModelChange)="onCommentChange(comment)"></textarea>
+  </mat-form-field>
+

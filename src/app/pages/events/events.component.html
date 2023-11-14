@@ -13,7 +13,7 @@
 
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef>Datum</th>
-    <td mat-cell *matCellDef="let invitation" (click)="onRowClicked(invitation)">
+    <td data-cy="event.dateTime" mat-cell *matCellDef="let invitation" (click)="onRowClicked(invitation)">
       {{ invitation.event.dateTime | date:'EE dd.MM. HH:mm':'CET':'de'}}
     </td>
   </ng-container>
