@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {RSVPStatus, RSVPStatusIcons, RSVPStatusLabels} from "../model/rsvpstatus.model";
 import {Event} from "../model/event.model";
+import {EventType, EventTypeLabels} from "../model/eventtype.model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class UtilService {
     const eventDate = new Date(event.dateTime);
     const now = new Date();
     return eventDate < now;
+  }
+
+  getEventTypeLabel(eventType: EventType): string {
+    return EventTypeLabels[eventType];
   }
 
 

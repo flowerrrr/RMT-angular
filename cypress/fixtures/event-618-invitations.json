@@ -1,0 +1,87 @@
+[
+  {
+    "id": 25817,
+    "status": "ACCEPTED",
+    "date": "2023-06-01T12:45:56",
+    "event": {
+      "id": 618,
+      "eventType": "Tournament",
+      "team": {
+        "id": 5,
+        "name": "Juventus Urin",
+        "url": null
+      },
+      "dateTime": "2024-07-22T12:00:00",
+      "dateTimeEnd": "2024-07-22T17:00:00",
+      "summary": "30 Jahre Mx Sendling",
+      "canceled": false
+    },
+    "user": {
+      "username": "busti@web.de",
+      "fullname": "Busti"
+    },
+    "comments": [
+      {
+        "text": "Coole Geschichte",
+        "author": {
+          "username": "busti@web.de",
+          "fullname": "Busti"
+        }
+      }
+    ]
+  },
+  {
+    "id": 25818,
+    "status": "UNSURE",
+    "date": "2023-06-01T12:45:56",
+    "event": {
+      "id": 618,
+      "eventType": "Tournament",
+      "team": {
+        "id": 5,
+        "name": "Juventus Urin",
+        "url": null
+      },
+      "dateTime": "2032-07-22T12:00:00",
+      "dateTimeEnd": "2032-07-22T17:00:00",
+      "summary": "30 Jahre Mx Sendling",
+      "canceled": false
+    },
+    "user": {
+      "username": "horsti@web.de",
+      "fullname": "Horsti"
+    },
+    "comments": [
+      {
+        "text": "Laut Whatsapp",
+        "author": {
+          "username": "busti@web.de",
+          "fullname": "Busti"
+        }
+      }
+    ]
+  },
+  {
+    "id": 25819,
+    "status": "DECLINED",
+    "date": "2023-06-01T12:45:56",
+    "event": {
+      "id": 618,
+      "eventType": "Tournament",
+      "team": {
+        "id": 5,
+        "name": "Juventus Urin",
+        "url": null
+      },
+      "dateTime": "2024-07-22T12:00:00",
+      "dateTimeEnd": "2024-07-22T17:00:00",
+      "summary": "30 Jahre Mx Sendling",
+      "canceled": false
+    },
+    "user": {
+      "username": "knipsi@web.de",
+      "fullname": "Knipsi"
+    },
+    "comments": []
+  }
+]

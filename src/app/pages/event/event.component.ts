@@ -4,6 +4,8 @@ import {ApiService} from "../../services/api.service";
 import {Invitation} from "../../model/invitation.model";
 import {Event} from "../../model/event.model";
 import {RSVPStatus} from "../../model/rsvpstatus.model";
+import {EventType} from "../../model/eventtype.model";
+import {UtilService} from "../../services/util.service";
 
 @Component({
   selector: 'app-event',
@@ -20,6 +22,7 @@ export class EventComponent {
 
   constructor(
     private route: ActivatedRoute,
+    private utilService: UtilService,
     private apiService: ApiService,
   ) {
   }
@@ -46,4 +49,7 @@ export class EventComponent {
     return this.invitations.filter(i => i.status === status);
   }
 
+  getEventTypeLabel(eventType: EventType) {
+    return this.utilService.getEventTypeLabel(eventType);
+  }
 }

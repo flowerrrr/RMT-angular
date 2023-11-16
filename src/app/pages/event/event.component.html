@@ -30,7 +30,7 @@
         <dd>{{ event.team.name }}</dd>
 
         <dt>Typ</dt>
-        <dd>{{ event.eventType  }}</dd>
+        <dd>{{ getEventTypeLabel(event.eventType)  }}</dd>
 
         <dt>Titel</dt>
         <dd>{{ event.summary  }}</dd>
@@ -68,7 +68,7 @@
         <div mat-subheader>
           Zusagen ({{ getInvitations(RSVPStatus.ACCEPTED).length }})
         </div>
-        <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.ACCEPTED)">
+        <mat-list-item class="zusage" *ngFor="let invitation of getInvitations(RSVPStatus.ACCEPTED)">
           <mat-icon matListItemIcon>thumb_up_off_alt</mat-icon>
           <div matListItemTitle>{{invitation.user.fullname}}</div>
           <div matListItemLine *ngIf="invitation.comments.length">
@@ -82,7 +82,7 @@
         <div mat-subheader>
           Vielleicht ({{ getInvitations(RSVPStatus.UNSURE).length }})
         </div>
-        <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.UNSURE)">
+        <mat-list-item class="vielleicht" *ngFor="let invitation of getInvitations(RSVPStatus.UNSURE)">
           <mat-icon matListItemIcon>thumbs_up_down</mat-icon>
           <div matListItemTitle>{{invitation.user.fullname}}</div>
           <div matListItemLine>
@@ -96,7 +96,7 @@
         <div mat-subheader>
           Absagen ({{ getInvitations(RSVPStatus.DECLINED).length }})
         </div>
-        <mat-list-item *ngFor="let invitation of getInvitations(RSVPStatus.DECLINED)">
+        <mat-list-item class="absage" *ngFor="let invitation of getInvitations(RSVPStatus.DECLINED)">
           <mat-icon matListItemIcon>thumb_down_off_alt</mat-icon>
           <div matListItemTitle>{{invitation.user.fullname}}</div>
           <div matListItemLine>

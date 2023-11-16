@@ -11,6 +11,16 @@ describe('Termine', () => {
     cy.get('[data-cy="event.dateTime"]').should('have.length', 20);
   })
 
+  it('should allow to jump to an event by clicking the row', () => {
+    cy.intercept('GET', '/das-tool-rest/invitations', {fixture: 'invitations'});
+    cy.intercept('GET', '/das-tool-rest/events/618/invitation', {fixture: 'event-618-invitation'});
+    cy.intercept('GET', '/das-tool-rest/events/618/invitations', {fixture: 'event-618-invitations'});
+    cy.visit('/events')
+    cy.get('table tbody tr:nth-child(1)').click();
+    // Assert the URL has changed
+    cy.url().should('include', '/event/618');
+  })
+
   it('should display the properties of an event', () => {
     cy.intercept('GET', '/das-tool-rest/invitations', {fixture: 'invitations'});
     cy.visit('/events')
